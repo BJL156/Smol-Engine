@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "Renderer.h"
 #include "Shader.h"
+#include "Game.h"
 
 namespace SmolEngine
 {
@@ -16,11 +17,11 @@ namespace SmolEngine
 		{
 			while (!window.ShouldClose()) {
 				window.Update();
-				renderer.Draw();
+				game.Update();
 			}
 		}
 	private:
 		Window window{WIDTH, HEIGHT, "Smol Engine"};
-		Renderer renderer;
+		Game game{WIDTH, HEIGHT};
 	};
 }

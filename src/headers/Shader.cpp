@@ -4,24 +4,59 @@ namespace SmolEngine
 {
 	Shader::Shader(std::string vertexFilePath, std::string fragmentFilePath)
 	{
-		Compile(vertexFilePath, fragmentFilePath);
+		GetShaders(vertexFilePath, fragmentFilePath);
+		Compile();
 	}
 
-	void Shader::Compile(std::string& vertexFilePath, std::string& fragmentFilePath)
+	void Shader::GetShaders(std::string vertexFilePath, std::string fragmentFilePath)
 	{
-		// get shader sources
-		const char* vertexShaderSource = ReadFile(vertexFilePath);
-		const char* fragmentShaderSource = ReadFile(fragmentFilePath);
+		// get vertex shader source
+		std::fstream vertexFile;
+		std::stringstream vertexStream;
 
-		std::cout << vertexShaderSource << std::endl;
-		std::cout << fragmentShaderSource << std::endl;
+		vertexFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+		try
+		{
+			vertexFile.open(vertexFilePath);
+			vertexStream << vertexFile.rdbuf();
+			vertexFile.close();
+		}
+		catch (std::ifstream::failure exception)
+		{
+			std::cout << "FAILED TO READ VERTEX SHADER FILE" << std::endl;
+		}
 
+		vertexShaderString = vertexStream.str();
+
+		// get fragment shader source
+		std::fstream fragmentFile;
+		std::stringstream fragmentStream;
+
+		fragmentFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+		try
+		{
+			fragmentFile.open(fragmentFilePath);
+			fragmentStream << fragmentFile.rdbuf();
+			fragmentFile.close();
+		}
+		catch (const std::exception&)
+		{
+			std::cout << "FAILED TO READ FRAGMENT SHADER FILE" << std::endl;
+		}
+
+		fragmentShaderString = fragmentStream.str();
+	}
+
+	void Shader::Compile()
+	{
 		// create shader program
 		unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+		const char* vertexShaderSource = vertexShaderString.c_str();
 		glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
 		glCompileShader(vertexShader);
 
 		unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+		const char* fragmentShaderSource = fragmentShaderString.c_str();
 		glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
 		glCompileShader(fragmentShader);
 
@@ -40,19 +75,8 @@ namespace SmolEngine
 		glUseProgram(ID);
 	}
 
-	const char* Shader::ReadFile(std::string& filePath)
+	void Shader::SetMat4(std::string name, glm::mat4& mat4)
 	{
-		std::fstream file(filePath);
-		std::stringstream fileStream;
-
-		if (file.is_open()) {
-			std::string line;
-			while (std::getline(file, line)) {
-				fileStream << line << std::endl;
-			}
-		}
-		std::string fileString = fileStream.str();
-
-		return fileString.c_str();
+		glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat4[0][0]);
 	}
 }

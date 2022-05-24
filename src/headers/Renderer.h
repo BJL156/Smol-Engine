@@ -14,9 +14,9 @@ namespace SmolEngine
 		Renderer();
 		~Renderer();
 
-		void Draw();
+		void Draw(glm::vec2 position, glm::vec2 scale, float windowWidth, float windowHeight);
 	private:
 		unsigned int VBO, VAO;
-		Shader shader{ "res/shaders/vertex.glsl", "res/shaders/fragment.glsl" };
+		Shader shader{"res/shaders/vertex.glsl", "res/shaders/fragment.glsl"};
 	};
 }

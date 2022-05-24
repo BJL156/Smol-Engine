@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="glad.c" />
+    <ClCompile Include="src\headers\Game.cpp" />
     <ClCompile Include="src\headers\Renderer.cpp" />
     <ClCompile Include="src\headers\Shader.cpp" />
     <ClCompile Include="src\headers\Window.cpp" />
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\headers\Application.h" />
+    <ClInclude Include="src\headers\Game.h" />
     <ClInclude Include="src\headers\Renderer.h" />
     <ClInclude Include="src\headers\Shader.h" />
     <ClInclude Include="src\headers\Window.h" />

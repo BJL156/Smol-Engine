@@ -17,8 +17,13 @@ namespace SmolEngine
 		Shader(std::string vertexFilePath, std::string fragmentFilePath);
 
 		void Use();
+
+		void SetMat4(std::string name, glm::mat4& mat4);
 	private:
-		void Compile(std::string& vertexFilePath, std::string& fragmentFilePath);
-		const char* ReadFile(std::string& filePath);
+		std::string vertexShaderString;
+		std::string fragmentShaderString;
+
+		void GetShaders(std::string vertexFilePath, std::string fragmentFilePath);
+		void Compile();
 	};
 }
