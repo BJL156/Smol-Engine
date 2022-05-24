@@ -23,7 +23,11 @@ namespace SmolEngine
 ```
 
 ## Drawing Rectangles
-Rectangles are incredibly easy to draw there is only one method that needs to be called which is `void DrawRectangle(float x, float y, float w, float h)` That add the arguments for the rectangle. This needs to be called in the `void Update()` method because the rectangle should be drawn to the screen each frame.
+Rectangles are incredibly easy to draw. This is because there is only one method that needs to be called which is:
+
+`void DrawRectangle(float x, float y, float w, float h)`
+
+This needs to be called in the `void Update()` method because the rectangle should be drawn to the screen each frame.
 ```
 void Game::Update()
 {
