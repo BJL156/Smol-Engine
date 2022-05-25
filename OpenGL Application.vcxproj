@@ -146,14 +146,19 @@
     <ClCompile Include="src\headers\Game.cpp" />
     <ClCompile Include="src\headers\Renderer.cpp" />
     <ClCompile Include="src\headers\Shader.cpp" />
+    <ClCompile Include="src\headers\stb_image\stb_image.cpp" />
+    <ClCompile Include="src\headers\Texture.cpp" />
     <ClCompile Include="src\headers\Window.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\headers\Application.h" />
+    <ClInclude Include="src\headers\Entity.h" />
     <ClInclude Include="src\headers\Game.h" />
     <ClInclude Include="src\headers\Renderer.h" />
     <ClInclude Include="src\headers\Shader.h" />
+    <ClInclude Include="src\headers\stb_image\stb_image.h" />
+    <ClInclude Include="src\headers\Texture.h" />
     <ClInclude Include="src\headers\Window.h" />
   </ItemGroup>
   <ItemGroup>

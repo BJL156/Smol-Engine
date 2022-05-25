@@ -40,5 +40,9 @@ namespace SmolEngine
 
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 			std::cout << "FAILED TO INITIALIZE GLAD" << std::endl;
+
+		// make transparency transparent
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_BLEND);
 	}
 }

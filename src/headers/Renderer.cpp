@@ -40,9 +40,10 @@ namespace SmolEngine
 		glDeleteVertexArrays(1, &VAO);
 	}
 
-	void Renderer::Draw(glm::vec2 position, glm::vec2 scale, float windowWidth, float windowHeight)
+	void Renderer::Draw(glm::vec2 position, glm::vec2 scale, glm::vec4 color, float windowWidth, float windowHeight)
 	{
 		shader.Use();
+		texture.Bind();
 
 		glm::mat4 model = glm::mat4(1.0f);
 		glm::mat4 projection = glm::ortho(0.0f, windowWidth, windowHeight, 0.0f);
@@ -52,6 +53,8 @@ namespace SmolEngine
 
 		shader.SetMat4("model", model);
 		shader.SetMat4("projection", projection);
+
+		shader.SetVec4("Tint", glm::vec4(color.x / 255.0f, color.y / 255.0f, color.z / 255.0f, color.w / 255.0f));
 
 		// draw triangle
 		glBindVertexArray(VAO);

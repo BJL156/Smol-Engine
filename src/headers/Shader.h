@@ -19,6 +19,7 @@ namespace SmolEngine
 		void Use();
 
 		void SetMat4(std::string name, glm::mat4& mat4);
+		void SetVec4(std::string name, glm::vec4 vec4);
 	private:
 		std::string vertexShaderString;
 		std::string fragmentShaderString;

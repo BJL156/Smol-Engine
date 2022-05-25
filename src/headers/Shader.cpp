@@ -79,4 +79,8 @@ namespace SmolEngine
 	{
 		glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat4[0][0]);
 	}
+	void Shader::SetVec4(std::string name, glm::vec4 vec4)
+	{
+		glUniform4fv(glGetUniformLocation(ID, name.c_str()), 1, &vec4[0]);
+	}
 }

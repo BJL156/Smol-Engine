@@ -1,8 +1,13 @@
 #version 330 core
 
+in vec2 TextureCoordinates;
+
 out vec4 Color;
+
+uniform vec4 Tint;
+uniform sampler2D image;
 
 void main()
 {
-	Color = vec4(1.0f, 0.0f, 0.0f, 1.0f);
+	Color = Tint * texture(image, TextureCoordinates);
 }
