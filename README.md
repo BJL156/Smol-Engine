@@ -40,7 +40,7 @@ void Game::Update()
 ##### Draw With an Entity Class
 An Entity can be used for creating instances of postional and scaling data. This data can then be passed to a draw call that will draw geometry using the data from the entity class.
 
-An Entity class is made with the consturctor:
+An Entity class is made with the follwing constructor:
 ```
 Entity(float X, float Y, float W, float H)
 ```
