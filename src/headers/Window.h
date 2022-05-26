@@ -18,6 +18,10 @@ namespace SmolEngine
 
 		void Update();
 
+		GLFWwindow* GetWindow() { return window; }
+		int GetWidth() { return width; }
+		int GetHeight() { return height; }
+
 		bool ShouldClose() { return glfwWindowShouldClose(window); }
 	private:
 		void CreateWindow(std::string& name);

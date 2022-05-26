@@ -143,27 +143,33 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="glad.c" />
-    <ClCompile Include="src\headers\Game.cpp" />
     <ClCompile Include="src\headers\Renderer.cpp" />
     <ClCompile Include="src\headers\Shader.cpp" />
     <ClCompile Include="src\headers\stb_image\stb_image.cpp" />
     <ClCompile Include="src\headers\Texture.cpp" />
+    <ClCompile Include="src\headers\TextureRenderer.cpp" />
     <ClCompile Include="src\headers\Window.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\headers\Application.h" />
     <ClInclude Include="src\headers\Entity.h" />
-    <ClInclude Include="src\headers\Game.h" />
+    <ClInclude Include="src\headers\Input.h" />
+    <ClInclude Include="src\headers\InputCodes.h" />
     <ClInclude Include="src\headers\Renderer.h" />
     <ClInclude Include="src\headers\Shader.h" />
     <ClInclude Include="src\headers\stb_image\stb_image.h" />
     <ClInclude Include="src\headers\Texture.h" />
+    <ClInclude Include="src\headers\TextureRenderer.h" />
     <ClInclude Include="src\headers\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\fragment.glsl" />
-    <None Include="res\shaders\vertex.glsl" />
+    <None Include="res\shaders\SolidFragment.glsl" />
+    <None Include="res\shaders\SolidVertex.glsl" />
+    <None Include="res\shaders\TextureFragment.glsl" />
+    <None Include="res\shaders\TextureVertex.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\chicken.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

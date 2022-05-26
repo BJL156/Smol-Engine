@@ -16,6 +16,7 @@ namespace SmolEngine
 
 		void Bind();
 	private:
+		void CreateTexture(std::string imageFilePath);
 		unsigned int texture;
 	};
 }

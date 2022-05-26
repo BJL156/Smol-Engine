@@ -4,6 +4,17 @@ namespace SmolEngine
 {
 	Texture::Texture(std::string imageFilePath)
 	{
+		CreateTexture(imageFilePath);
+	}
+
+	void Texture::Bind()
+	{
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, texture);
+	}
+
+	void Texture::CreateTexture(std::string imageFilePath)
+	{
 		int numChannels;
 		unsigned char* data = stbi_load(imageFilePath.c_str(), &width, &height, &numChannels, 0);
 
@@ -26,11 +37,5 @@ namespace SmolEngine
 		else
 			std::cout << "FAILED TO LOAD IMAGE" << std::endl;
 		stbi_image_free(data);
-	}
-
-	void Texture::Bind()
-	{
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, texture);
 	}
 }

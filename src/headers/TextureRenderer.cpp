@@ -1,9 +1,8 @@
-#include "Renderer.h"
-#include "Renderer.h"
+#include "TextureRenderer.h"
 
 namespace SmolEngine
 {
-	Renderer::Renderer()
+	TextureRenderer::TextureRenderer()
 	{
 		float vertices[] =
 		{
@@ -27,21 +26,22 @@ namespace SmolEngine
 
 		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
-
+		
 		// unbind
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 	}
 
-	Renderer::~Renderer()
+	TextureRenderer::~TextureRenderer()
 	{
 		glDeleteBuffers(1, &VBO);
 		glDeleteVertexArrays(1, &VAO);
 	}
 
-	void Renderer::Draw(glm::vec2 position, glm::vec2 scale, glm::vec4 color, float windowWidth, float windowHeight)
+	void TextureRenderer::Draw(glm::vec2 position, glm::vec2 scale, glm::vec4 color, Texture texture, float windowWidth, float windowHeight)
 	{
 		shader.Use();
+		texture.Bind();
 
 		glm::mat4 model = glm::mat4(1.0f);
 		glm::mat4 projection = glm::ortho(0.0f, windowWidth, windowHeight, 0.0f);
@@ -60,8 +60,8 @@ namespace SmolEngine
 		glBindVertexArray(0);
 	}
 
-	void Renderer::DrawEntity(Entity& entity, float windowWidth, float windowHeight)
+	void TextureRenderer::DrawEntity(Texture& texture, Entity& entity, float windowWidth, float windowHeight)
 	{
-		Draw(glm::vec2(entity.x, entity.y), glm::vec2(entity.width, entity.height), entity.color, windowWidth, windowHeight);
+		Draw(glm::vec2(entity.x, entity.y), glm::vec2(entity.width, entity.height), entity.color, texture, windowWidth, windowHeight);
 	}
 }
