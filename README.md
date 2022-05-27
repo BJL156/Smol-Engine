@@ -1,7 +1,7 @@
 # Smol Game Engine
-SmolGE (Smol Game Engine) is was made mostly for me further deepen my skills with OpenGL.
+SmolGE (Smol Game Engine) is was made mostly for me to further deepen my skills with OpenGL.
 
-This is my second attempt on making a game tool with OpenGL my first was called "OpenGL Game Test" which can be found here: https://github.com/BJL156/OpenGL-Game-Test.
+This is my second attempt on making a game tool with OpenGL my first was called "OpenGL Game Test" which can be found here: https://github.com/BJL156/OpenGL-Game-Test I am starting this test because I feel as if I have learned a lot since the first test and I can also write better code now. Although my next test this will most likely be the reason for doing another test. 
 
 ## Front End
 Games are written in the `Game.cpp` file were it looks something along the lines of this:
